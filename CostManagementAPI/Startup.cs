@@ -67,7 +67,7 @@ namespace CostManagementAPI
                 endpoints.MapRazorPages();
             });
 
-            
+            DummyData.Initialize(context);
         }
     }
 }

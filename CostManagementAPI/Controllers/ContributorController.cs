@@ -22,24 +22,26 @@ namespace CostManagementAPI.Controllers
         }
 
         // GET: api/Contributors
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Contributor>>> GetProduct()
+        [HttpGet("getContributor")]
+        public async Task<IActionResult> GetContributor()
         {
-            return await _context.Contributors.ToListAsync();
+            var contributors =  await _context.Contributors.ToListAsync();
+
+            return Ok(contributors);
         }
 
         // GET: api/Contributors/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Contributor>> GetProduct(int id)
+        [HttpGet("GetContributor/{id}")]
+        public async Task<IActionResult> GetContributor(int id)
         {
-            var product = await _context.Contributors.FindAsync(id);
+            var contributor = await _context.Contributors.FindAsync(id);
 
-            if (product == null)
+            if (contributor == null)
             {
                 return NotFound();
             }
 
-            return product;
+            return Ok(contributor);
         }
 
     }
