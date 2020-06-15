@@ -67,6 +67,37 @@ namespace CostManagementAPI.Data.Migrations
                     b.ToTable("Editors");
                 });
 
+            modelBuilder.Entity("CostManagementAPI.Models.Imprint", b =>
+                {
+                    b.Property<int>("ImprintId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("ISBN")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ImprintId");
+
+                    b.ToTable("Imprint");
+                });
+
+            modelBuilder.Entity("CostManagementAPI.Models.Material", b =>
+                {
+                    b.Property<int>("MaterialId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("CoverType")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("MaterialId");
+
+                    b.ToTable("Materials");
+                });
+
             modelBuilder.Entity("CostManagementAPI.Models.User", b =>
                 {
                     b.Property<int>("Id")
