@@ -66,6 +66,70 @@ namespace CostManagementAPI.Models
                     Address="Hyderabad"
                 });
             }
+            if (!db.RoyaltyTypes.Any())
+            {
+                db.RoyaltyTypes.Add(new RoyaltyType
+                {
+                    RoyaltyTypeId = 1,
+                    Type= "ROYALTIES PAID ON RETAIL SALES"
+                });
+                db.RoyaltyTypes.Add(new RoyaltyType
+                {
+                    RoyaltyTypeId = 2,
+                    Type = "ROYALTIES PAID ON NET SALES"
+                });
+                db.RoyaltyTypes.Add(new RoyaltyType
+                {
+                    RoyaltyTypeId = 3,
+                    Type = "PROFIT SHARING"
+                });
+            }
+
+            if (!db.Materials.Any())
+            {
+                db.Materials.Add(new Material
+                {
+                    MaterialId = 1,
+                    CoverType= "Hard cover"
+                });
+                db.Materials.Add(new Material
+                {
+                    MaterialId = 2,
+                    CoverType= "Paper back"
+                });
+            }
+            if (!db.EditionTypes.Any())
+            {
+                db.EditionTypes.Add(new EditionType
+                {
+                    EditionTypeId = 1,
+                    Type= "CD"
+                });
+                db.EditionTypes.Add(new EditionType
+                {
+                    EditionTypeId = 2,
+                    Type= "Book"
+                });
+            }
+            if (!db.SalesTypes.Any())
+            {
+                db.SalesTypes.Add(new SalesType
+                {
+                    SalesTypeId = 1,
+                    Type= "Competitors"
+                });
+                db.SalesTypes.Add(new SalesType
+                {
+                    SalesTypeId = 2,
+                    Type= "Suppliers"
+                });
+                db.SalesTypes.Add(new SalesType
+                {
+                    SalesTypeId = 3,
+                    Type= "Distributors"
+                });
+            }
+
             db.SaveChanges();
         }
     }
