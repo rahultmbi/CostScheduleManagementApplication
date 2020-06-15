@@ -23,6 +23,8 @@ namespace API.Data
         public DbSet<SalesType> SalesTypes { get; set; }
         public DbSet<Imprint> Imprint { get; set; }
         public DbSet<RoyaltyTemplate> RoyaltyTemplates { get; set; }
+        public DbSet<SalesTemplates> SalesTemplates { get; set; }
+        public DbSet<CostTemplete> CostTempletes { get; set; }
 
     }
 }

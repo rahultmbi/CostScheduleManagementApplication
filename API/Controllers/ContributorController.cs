@@ -51,5 +51,37 @@ namespace CostManagementAPI.Controllers
             return Ok(materials);
         }
 
+        [HttpGet("getRoyaltyTypes")]
+        public async Task<IActionResult> GetRoyaltyTypes()
+        {
+            var royaltyTypes =  await _context.RoyaltyTypes.ToListAsync();
+
+            return Ok(royaltyTypes);
+        }
+
+        [HttpGet("getSalesTypes")]
+        public async Task<IActionResult> GetSalesTypes()
+        {
+            var salesTypes =  await _context.SalesTypes.ToListAsync();
+
+            return Ok(salesTypes);
+        }
+
+        [HttpGet("getEditorilType")]
+        public async Task<IActionResult> GetEditorilType()
+        {
+            var editionType =  await _context.EditionTypes.ToListAsync();
+
+            return Ok(editionType);
+        }
+
+        [HttpGet("getEditors")]
+        public async Task<IActionResult> GetEditors()
+        {
+            var editors =  await _context.Editors.ToListAsync();
+
+            return Ok(editors);
+        }
+
     }
 }
