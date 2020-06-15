@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CostManagementAPI.Data;
 using CostManagementAPI.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,7 @@ namespace CostManagementAPI.Controllers
 
         // GET: api/Contributors
         [HttpGet("getContributor")]
+        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> GetContributor()
         {
             var contributors =  await _context.Contributors.ToListAsync();
