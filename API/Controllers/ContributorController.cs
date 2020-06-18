@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
-using Microsoft.AspNetCore.Http;
+using CostManagementAPI.Data;
+using CostManagementAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,10 +13,12 @@ namespace CostManagementAPI.Controllers
     public class ContributorController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private IAuthRepository _authRepository { get; set; }
 
-        public ContributorController(ApplicationDbContext context)
+        public ContributorController(ApplicationDbContext context, IAuthRepository authRepository)
         {
             _context = context;
+            _authRepository = authRepository;
         }
 
         // GET: api/Contributors
@@ -83,5 +84,25 @@ namespace CostManagementAPI.Controllers
             return Ok(editors);
         }
 
+        [HttpPost("saveImprintData")]
+        public async Task<IActionResult> SaveImprintData()
+        {
+            var imprints = new Imprint
+            {
+                ContriutorId = 2,
+                EditorId = 2,
+                ImprintId = 3,
+                ISBN = _authRepository.GenerateIsbn("123876789"),
+                Type = "imporinttype2"
+            };
+
+            await _context.Imprint.AddAsync(imprints);
+            await _context.SaveChangesAsync();
+
+            var response = await _context.Imprint.ToListAsync();
+
+            return Ok(response);
+        }
+        
     }
 }

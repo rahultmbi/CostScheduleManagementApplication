@@ -22,17 +22,15 @@ namespace CostManagementAPI.Controllers
     {
     public IAuthRepository _authRepository { get; set; }
     public IConfiguration _config { get; set; }
-    public IMapper _mapper { get; set; }
 
-        public AuthController(IAuthRepository authRepository, IConfiguration config, IMapper mapper)
+        public AuthController(IAuthRepository authRepository, IConfiguration config)
         {
             _authRepository = authRepository;
             _config = config;
-            _mapper = _mapper;
         }
 
-        [HttpPost("login")]
-        public async Task<IActionResult> Login()
+        [HttpGet("login")]
+        public async Task<IActionResult> Login(string username)
         {
             //throw new Exception("Server says No!.");
             //checking user exist or not
@@ -45,8 +43,7 @@ namespace CostManagementAPI.Controllers
 
             var claims = new[]
             {
-                 new Claim(ClaimTypes.NameIdentifier,UserFromRepo.Id.ToString()),
-                 new Claim(ClaimTypes.Name,UserFromRepo.Username)
+                 new Claim(type: ClaimTypes.Name,value: username)   
              };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
@@ -65,12 +62,14 @@ namespace CostManagementAPI.Controllers
 
             var token = tockenHandler.CreateToken(tockenDescriptor);
 
-            var user = _mapper.Map<UserForLoginDto>(UserFromRepo);
+            return Ok(tockenHandler.WriteToken(token));
+        }
 
-            return Ok(new {
-               token = tockenHandler.WriteToken(token),
-               user
-            });
+        [HttpGet("gethello")]
+        public string getHello()
+        {
+
+            return "Hello";
         }
 
     //     [HttpPost("register")]

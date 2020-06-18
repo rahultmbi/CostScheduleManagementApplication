@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using API.Data;
 using CostManagementAPI.Models;
@@ -5,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CostManagementAPI.Data
 {
-    public class AuthRepository
+    public class AuthRepository : IAuthRepository
     {
         public ApplicationDbContext _Context { get; set; }
         public AuthRepository(ApplicationDbContext context)
@@ -60,5 +61,45 @@ namespace CostManagementAPI.Data
                 passwordhash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
             }
         }
+
+        public async Task<bool> UserExists(string username)
+        {
+            if (await _Context.User.AnyAsync(x => x.Username == username))
+                return true;
+
+            return false;
+        }
+
+        public string GenerateIsbn(string isbn) // string must have 9 digits
+        {
+            if (isbn == null)
+                throw new ArgumentNullException();
+
+            isbn = NormalizeIsbn(isbn);
+
+            if (isbn.Length != 9)
+                throw new ArgumentException();
+
+            int result;
+            for (int i = 0; i != 9; i++)
+                if (!int.TryParse(isbn[i].ToString(), out result))
+                    throw new ArgumentException();
+
+            int sum = 0;
+            for (int i = 0; i != 9; i++)
+                sum += (i + 1) * int.Parse(isbn[i].ToString());
+
+            int remainder = sum % 11;
+            if (remainder == 10)
+                return isbn + 'X';
+            else
+                return isbn + (char)('0' + remainder);
+        }
+
+        public string NormalizeIsbn(string isbn)
+        {
+            return isbn.Replace("-", "").Replace(" ", "");
+        }
+
     }
 }
