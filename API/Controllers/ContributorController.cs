@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Data;
 using CostManagementAPI.Data;
@@ -23,11 +24,11 @@ namespace CostManagementAPI.Controllers
 
         // GET: api/Contributors
         [HttpGet("getContributor")]
-        public async Task<IActionResult> GetContributor()
+        public async Task<IEnumerable<Contributor>> GetContributor()
         {
             var contributors =  await _context.Contributors.ToListAsync();
 
-            return Ok(contributors);
+            return contributors;
         }
 
         // GET: api/Contributors/5
@@ -35,9 +36,8 @@ namespace CostManagementAPI.Controllers
         public async Task<IActionResult> GetContributor(int id)
         {
             var contributor = await _context.Contributors.FindAsync(id);
-
-            if (contributor == null)
-            {
+            
+            if(contributor == null){
                 return NotFound();
             }
 
@@ -85,15 +85,15 @@ namespace CostManagementAPI.Controllers
         }
 
         [HttpPost("saveImprintData")]
-        public async Task<IActionResult> SaveImprintData()
+        public async Task<IActionResult> SaveImprintData(Imprint imprint)
         {
             var imprints = new Imprint
             {
-                ContriutorId = 2,
-                EditorId = 2,
-                ImprintId = 3,
-                ISBN = _authRepository.GenerateIsbn("123876789"),
-                Type = "imporinttype2"
+                ContriutorId = imprint.ContriutorId,
+                EditorId = imprint.EditorId,
+             //   ImprintId = 3,
+                ISBN = _authRepository.GenerateIsbn(imprint.ISBN),
+                Type = imprint.Type
             };
 
             await _context.Imprint.AddAsync(imprints);

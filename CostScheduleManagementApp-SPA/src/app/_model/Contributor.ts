@@ -1,5 +1,5 @@
 
-export interface Contributor {
+export class Contributor {
     contributorId: number;
     name: string;
     address: string;

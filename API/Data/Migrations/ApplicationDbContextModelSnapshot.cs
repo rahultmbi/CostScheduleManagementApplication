@@ -183,6 +183,23 @@ namespace API.Data.Migrations
                     b.ToTable("SalesTypes");
                 });
 
+            modelBuilder.Entity("CostManagementAPI.Models.ScheduleTemplates", b =>
+                {
+                    b.Property<int>("ScheduleTemplateId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("DateRange")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("TemplateName")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("ScheduleTemplateId");
+
+                    b.ToTable("ScheduleTemplates");
+                });
+
             modelBuilder.Entity("CostManagementAPI.Models.User", b =>
                 {
                     b.Property<int>("Id")

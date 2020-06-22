@@ -7,10 +7,14 @@ import { ContributorService } from './_service/contributor.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AlertifyService } from './_service/alertify.service';
+//import { ChartModule } from 'angular-highcharts';
+import { HighchartsChartComponent } from 'highcharts-angular';
+import { EditorService } from './_service/editor.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HighchartsChartComponent
   ],
   imports: [
     BrowserModule,
@@ -18,10 +22,13 @@ import { AlertifyService } from './_service/alertify.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+  //  ChartModule,
+    
   ],
   providers: [
     ContributorService,
-    AlertifyService
+    AlertifyService,
+    EditorService
   ],
   bootstrap: [AppComponent]
 })
