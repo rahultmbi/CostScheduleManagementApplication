@@ -25,6 +25,7 @@ namespace API.Data
         public DbSet<RoyaltyTemplate> RoyaltyTemplates { get; set; }
         public DbSet<SalesTemplates> SalesTemplates { get; set; }
         public DbSet<CostTemplete> CostTempletes { get; set; }
+        public DbSet<ScheduleTemplates> ScheduleTemplates { get; set; }
 
     }
 }
