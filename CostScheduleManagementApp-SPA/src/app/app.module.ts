@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContributorService } from './_service/contributor.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertifyService } from './_service/alertify.service';
+import { ContributorsListComponent } from './contributors/contributors-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContributorsListComponent
   ],
   imports: [
     BrowserModule,

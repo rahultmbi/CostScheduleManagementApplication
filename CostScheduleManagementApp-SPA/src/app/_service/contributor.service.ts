@@ -15,7 +15,7 @@ export class ContributorService {
   getContributor() {
     let headers = new HttpHeaders();
     headers.append('Access-Control-Allow-Origin' , '*');
-    return this.http.get(this.baseUrl + 'Contributor/GetContributor', {headers: headers});
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/GetContributor', {headers: headers});
   }
 
 }
