@@ -1,1 +1,60 @@
-<p>cost-template works!</p>
+<div class="card">
+    <div class="card-header">
+        {{costTemplateTitle}}
+    </div>
+    <div class="card-body">
+        <div class="col-6">
+            <form #costTemplateForm="ngForm">
+                <div class="form-group row">
+                    <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Cost TemplateName:</label>
+                    <div class="col-md-8">
+                        <input id="CostTemplateName" name="CostTemplateName" type="text" class="form-control form-control-sm" ngModel>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="editor" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Imprint:</label>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="imprint" name="imprint" ngModel>
+                        <option  value="0">Select Imprint</option>
+                            <option *ngFor="let imprint of imprints" [value]="imprint.Id">
+                            {{imprint.RoyaltyTemplateName}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Royallity Template:</label>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
+                            <option  value="0">Select Royallity</option>
+                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.Id">
+                                {{royallity.RoyaltyTemplateName}}
+                                </option>
+                            </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="material" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Sales Template:</label>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
+                            <option  value="0">Select Sales</option>
+                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.Id">
+                                {{royallity.RoyaltyTemplateName}}
+                                </option>
+                            </select>
+                    </div>
+                </div>
+                
+                <div>
+                    <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
+                    <button class="btn btn-outline-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+        {{costTemplateForm.value | json}}
+    </div>
+</div>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { SalesTemplates } from '../_model/SalesTemplates';
 import { IImprint } from '../_model/Imprint';
 
 @Injectable({
@@ -35,6 +36,15 @@ export class ContributorService {
 
   getEditionType(){
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditionType');
+  }
+
+  saveSalesTemplate(salesTemplate: SalesTemplates){
+    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate/'+ salesTemplate, {});
+
+  }
+
+  getSalesTemplates(){
+    return this.http.get<any[]>(this.baseUrl + 'Sales/getSalesTemplates');
   }
 
 }

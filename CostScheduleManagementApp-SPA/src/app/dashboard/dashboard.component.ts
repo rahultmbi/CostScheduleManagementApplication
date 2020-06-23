@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import * as Highcharts from 'highcharts';
 
 @Component({
-   selector: 'app-root',
-   templateUrl: './dashboard/dashboard.component.html',
-   styleUrls: ['./dashboard/dashboard.component.css']
+   selector: 'dashboard',
+   templateUrl: './dashboard.component.html',
+   styleUrls: ['./dashboard.component.css']
 })
 export class AppComponent {
    highcharts = Highcharts;

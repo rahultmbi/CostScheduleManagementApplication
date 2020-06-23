@@ -68,8 +68,8 @@ namespace CostManagementAPI.Controllers
             return Ok(salesTypes);
         }
 
-        [HttpGet("getEditorilType")]
-        public async Task<IActionResult> GetEditorilType()
+        [HttpGet("getEditionType")]
+        public async Task<IActionResult> GetEditionType()
         {
             var editionType =  await _context.EditionTypes.ToListAsync();
 
