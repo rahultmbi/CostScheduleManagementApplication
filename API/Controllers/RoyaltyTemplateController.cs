@@ -49,7 +49,7 @@ namespace CostManagementAPI.Controllers
         return Ok(costTemplate);
         }
 
-        [HttpPost("saveRoyaltyTemplateData")]
+        [HttpPost("SaveCostTemplateData")]
         public async Task<IActionResult>  SaveCostTemplateData(int ImprintId, int RoyaltyTemplateId, int SalesTemplateId)
         {
 
