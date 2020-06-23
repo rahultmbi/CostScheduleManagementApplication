@@ -1,9 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<nav class='navbar navbar-expand navbar-light bg-light'>
+  <a class='navbar-brand'>{{title}}</a>
+  <ul class='nav nav-pills'>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/imprint']">Imprint</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/royalty']">Royalty</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/sales']">Sales</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/schedule']">Schedule</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/cost']">Cost</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/report']">Report</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/contributors']">Contributors</a></li>
+  </ul>
+</nav>
+<div class='container'>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet>
-  <contributor-list></contributor-list>
-</router-outlet>
