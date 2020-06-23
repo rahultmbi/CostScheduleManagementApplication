@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Http, Headers } from '@angular/http';
+import { Imprint } from '../_model/Imprint';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +13,29 @@ export class ContributorService {
 
   baseUrl = environment.apiUrl;
 
-  getContributor() {
-    let headers = new HttpHeaders();
-    headers.append('Access-Control-Allow-Origin' , '*');
-    return this.http.get<any[]>(this.baseUrl + 'Contributor/GetContributor', {headers: headers});
+
+  getContributor(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getContributor');
+  }
+
+  saveImprintData(imprint: Imprint){
+    return this.http.post<any[]>(this.baseUrl + 'Contributor/saveImprintData/'+ imprint, {});
+  }
+
+  getSalesTypes(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getSalesTypes');
+  }
+
+  getRoyaltyTypes(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getRoyaltyTypes');
+  }
+
+  getMaterial(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getMaterial');
+  }
+
+  getEditionType(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditionType');
   }
 
 }
