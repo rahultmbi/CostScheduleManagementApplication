@@ -1,4 +1,4 @@
-export interface Imprint{
+export interface IImprint {
     contributorId: number;
     editorId: number;
     type: string;
