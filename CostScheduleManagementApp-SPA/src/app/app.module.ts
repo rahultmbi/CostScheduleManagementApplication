@@ -5,16 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContributorService } from './_service/contributor.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AlertifyService } from './_service/alertify.service';
-//import { ChartModule } from 'angular-highcharts';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { EditorService } from './_service/editor.service';
+import { ContributorsListComponent } from './contributors/contributors-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighchartsChartComponent
+    HighchartsChartComponent,
+    ContributorsListComponent
   ],
   imports: [
     BrowserModule,
