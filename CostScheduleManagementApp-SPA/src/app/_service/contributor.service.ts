@@ -19,8 +19,23 @@ export class ContributorService {
   }
 
   saveImprintData(imprint: Imprint){
-    return this.http.post(this.baseUrl + 'Contributor/saveImprintData/'+ imprint, {});
+    return this.http.post<any[]>(this.baseUrl + 'Contributor/saveImprintData/'+ imprint, {});
+  }
 
+  getSalesTypes(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getSalesTypes');
+  }
+
+  getRoyaltyTypes(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getRoyaltyTypes');
+  }
+
+  getMaterial(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getMaterial');
+  }
+
+  getEditionType(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditionType');
   }
 
 }
