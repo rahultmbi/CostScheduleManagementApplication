@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ImprintListComponent implements OnInit {
 
+  public imprintTitle: string = 'Imprint / Edition';
   constructor() { }
 
   ngOnInit() {

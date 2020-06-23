@@ -1,4 +1,4 @@
-export class Editor {
+export class IEditor {
     editorId: number;
     name: string;
     address: string;
