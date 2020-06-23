@@ -4,13 +4,15 @@
     </div>
     <div class="card-body">
         <div class="col-6">
-            <form #imprintForm="ngForm">
+            <form #imprintForm="ngForm" (ngSubmit)="saveImprint(imprintForm)">
                 <div class="form-group row">
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Author:</label>
                     <div class="col-md-8">
-                        <select id="author" name="author" class="form-control form-control-sm" ngModel>
-                            <option value="" disabled selected>Select</option>
+                        <select id="author" name="author" class="form-control form-control-sm" [(ngModel)]="imprintObj.contributorId">
+                            <option *ngFor="let author of authors | async">
+                                {{author.name}}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -18,8 +20,10 @@
                     <label for="editor" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Editor:</label>
                     <div class="col-md-8">
-                        <select id="editor" name="editor"  class="form-control form-control-sm" ngModel>
-                            <option value="" disabled selected>Select</option>
+                        <select id="editor" name="editor"  class="form-control form-control-sm" [(ngModel)]="imprintObj.editorId">
+                            <option *ngFor="let item of editors | async">
+                                {{item.name}}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -27,8 +31,10 @@
                     <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Edition Type:</label>
                     <div class="col-md-8">
-                        <select id="editionType" name="editionType"  class="form-control form-control-sm" ngModel>
-                            <option value="" disabled selected>Select</option>
+                        <select id="editionType" name="editionType"  class="form-control form-control-sm" [(ngModel)]="imprintObj.type">
+                            <option  value="0">Select Type</option>
+                            <option  value="1">CD</option>
+                            <option  value="2">Book</option>
                         </select>
                     </div>
                 </div>
@@ -36,8 +42,10 @@
                     <label for="material" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Material:</label>
                     <div class="col-md-8">
-                        <select id="material" name="material"  class="form-control form-control-sm" ngModel>
-                            <option value="" disabled selected>Select</option>
+                        <select id="material" name="material"  class="form-control form-control-sm">
+                            <option *ngFor="let item of materials | async">
+                                {{item.coverType}}
+                            </option>
                         </select>
                     </div>
                 </div>
@@ -45,7 +53,7 @@
                     <label for="isbn" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         ISBN:</label>
                     <div class="col-md-8">
-                        <input id="isbn" name="isbn" type="text" class="form-control form-control-sm" ngModel>
+                        <input id="isbn" name="isbn" type="text" class="form-control form-control-sm" [(ngModel)]="imprintObj.isbn">
                     </div>
                 </div>
                 <div>

@@ -11,8 +11,6 @@ export class EditorService {
 
   baseUrl = environment.apiUrl;
 
-  getEditors(){
-    return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditors');
-  }
+  
 
 }

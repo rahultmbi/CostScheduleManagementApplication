@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { SalesTemplates } from '../_model/SalesTemplates';
 import { IImprint } from '../_model/Imprint';
+import { SalesTemplates } from '../_model/SalesTemplates';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,41 +15,55 @@ export class ContributorService {
   baseUrl = environment.apiUrl;
 
 
-  getContributor(){
+  getContributor() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getContributor');
   }
 
-  saveImprintData(imprint: IImprint){
-    return this.http.post<any[]>(this.baseUrl + 'Contributor/saveImprintData/'+ imprint, {});
+  saveImprintData(imprint: IImprint) {
+    return this.http.post<any[]>(this.baseUrl + 'Contributor/saveImprintData', {imprint});
   }
 
-  getSalesTypes(){
+  getSalesTypes() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getSalesTypes');
   }
 
-  getRoyaltyTypes(){
+  getRoyaltyTypes() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getRoyaltyTypes');
   }
 
-  getMaterial(){
+  getMaterial() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getMaterial');
   }
 
-  getEditionType(){
+  getEditionType() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditionType');
   }
 
-  saveSalesTemplate(salesTemplate: SalesTemplates){
-    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate/'+ salesTemplate, {});
+  getEditors(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditors');
+  }
+
+  saveSalesTemplate(salesTemplate: SalesTemplates) {
+    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate/' + salesTemplate, {});
 
   }
 
-  getSalesTemplates(){
+  getSalesTemplates() {
     return this.http.get<any[]>(this.baseUrl + 'Sales/getSalesTemplates');
   }
 
-  getImprints(){
+  getImprints() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getImprints');
   }
 
+  getDummyValue(): Observable<object[]> {
+    return of([{
+      "editionTypeId": 1,
+      "type": "CD"
+  },
+  {
+      "editionTypeId": 2,
+      "type": "Book"
+  }]);
+  }
 }
