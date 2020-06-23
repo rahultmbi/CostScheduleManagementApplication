@@ -1,8 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Http, Headers } from '@angular/http';
-import { Imprint } from '../_model/Imprint';
+import { IImprint } from '../_model/Imprint';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class ContributorService {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getContributor');
   }
 
-  saveImprintData(imprint: Imprint){
+  saveImprintData(imprint: IImprint){
     return this.http.post<any[]>(this.baseUrl + 'Contributor/saveImprintData/'+ imprint, {});
   }
 
