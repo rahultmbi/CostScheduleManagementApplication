@@ -84,6 +84,14 @@ namespace CostManagementAPI.Controllers
             return Ok(editors);
         }
 
+        [HttpGet("getImprints")]
+        public async Task<IActionResult> getImprints()
+        {
+            var imprints =  await _context.Imprint.ToListAsync();
+
+            return Ok(imprints);
+        }
+
         [HttpPost("saveImprintData")]
         public async Task<IActionResult> SaveImprintData(Imprint imprint)
         {

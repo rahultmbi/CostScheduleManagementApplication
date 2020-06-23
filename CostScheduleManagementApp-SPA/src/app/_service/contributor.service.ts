@@ -47,4 +47,8 @@ export class ContributorService {
     return this.http.get<any[]>(this.baseUrl + 'Sales/getSalesTemplates');
   }
 
+  getImprints(){
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getImprints');
+  }
+
 }

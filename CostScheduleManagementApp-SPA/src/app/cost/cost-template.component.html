@@ -4,12 +4,12 @@
     </div>
     <div class="card-body">
         <div class="col-6">
-            <form #costTemplateForm="ngForm">
+            <form #costTemplateForm="ngForm" (submit)="saveCostTemplate()">
                 <div class="form-group row">
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Cost TemplateName:</label>
                     <div class="col-md-8">
-                        <input id="CostTemplateName" name="CostTemplateName" type="text" class="form-control form-control-sm" ngModel>
+                        <input id="CostTemplateName" placeholder="Enter CostTemplateName" name="CostTemplateName" type="text" class="form-control form-control-sm" ngModel>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -17,9 +17,9 @@
                         Imprint:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="imprint" name="imprint" ngModel>
-                        <option  value="0">Select Imprint</option>
-                            <option *ngFor="let imprint of imprints" [value]="imprint.Id">
-                            {{imprint.RoyaltyTemplateName}}
+                        <option value="0" selected>Select Imprint</option>
+                            <option *ngFor="let imprint of imprints" [value]="imprint.imprintId">
+                            {{imprint.type}}
                             </option>
                         </select>
                     </div>
@@ -30,8 +30,8 @@
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
                             <option  value="0">Select Royallity</option>
-                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.Id">
-                                {{royallity.RoyaltyTemplateName}}
+                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
+                                {{royallity.type}}
                                 </option>
                             </select>
                     </div>
@@ -40,21 +40,24 @@
                     <label for="material" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Sales Template:</label>
                     <div class="col-md-8">
-                        <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
+                        <select class="form-control form-control-sm" id="sales.salesTemplatesId" name="sales.salesTemplatesId" ngModel>
                             <option  value="0">Select Sales</option>
-                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.Id">
-                                {{royallity.RoyaltyTemplateName}}
+                            <option  value="1">Sales 1</option>
+                            <option  value="2">Sales 2</option>
+                                <option *ngFor="let sales of salesTemplate" [value]="sales.salesTemplatesId">
+                                {{sales.salesType}}
                                 </option>
                             </select>
                     </div>
                 </div>
                 
-                <div>
+                <div class="float-right">
                     <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
                     <button class="btn btn-outline-primary" type="submit">Save</button>
                 </div>
             </form>
         </div>
+        <br><br>
         {{costTemplateForm.value | json}}
     </div>
 </div>

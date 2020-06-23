@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'Cost Schedule Management Application';
+  title = 'CSMA';
     
 }
