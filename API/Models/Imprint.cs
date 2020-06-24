@@ -9,6 +9,7 @@ namespace CostManagementAPI.Models
          public int ImprintId { get; set; }
          public int? ContriutorId { get; set; }
          public int? EditorId { get; set; }
+         public int? MaterialId { get; set; }
          public string Type { get; set; }
          public string ISBN { get; set; }
     }
