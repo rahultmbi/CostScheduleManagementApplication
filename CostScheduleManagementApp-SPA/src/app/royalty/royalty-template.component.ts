@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContributorService } from '../_service/contributor.service';
-import { AlertifyService } from '../_service/alertify.service'; 
+import { AlertifyService } from '../_service/alertify.service';
 import { NgForm } from '@angular/forms';
 import { RoyaltyTemplate } from '../_model/RoyaltyTemplate';
 
@@ -11,8 +11,7 @@ import { RoyaltyTemplate } from '../_model/RoyaltyTemplate';
   styleUrls: ['./royalty-template.component.css']
 })
 export class RoyaltyTemplateComponent implements OnInit {
-  private mm : string ;
-  months;
+
   public royallityTemplate: any[];
   public royaltyTemps: RoyaltyTemplate[] = [];
   royaltyTemplateTitle: string = "Royalty Template";
@@ -27,15 +26,12 @@ export class RoyaltyTemplateComponent implements OnInit {
 
   }
 
-    ngOnInit() {  
-    }  
-
-    saveRoyaltyTemplate(){
-    console.log("data saved");
+  ngOnInit() {
   }
 
   getRoyaltyTemplates() {
     this.contributorService.getRoyaltyTemplates().subscribe(results => {
+       // this.alertify.success('Contributors Details: ' + results);
         results.forEach(royaltyT => {
             this.royaltyTemps.push(royaltyT);
         });

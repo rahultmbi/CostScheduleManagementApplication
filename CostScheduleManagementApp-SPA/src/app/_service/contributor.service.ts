@@ -56,10 +56,6 @@ export class ContributorService {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getImprints');
   }
 
-  getSecheduleTemplate() {
-    return this.http.get<any[]>(this.baseUrl + 'Contributor/getScheduleTemplate');
-  }
-
   getDummyValue(): Observable<object[]> {
     return of([{
       "editionTypeId": 1,

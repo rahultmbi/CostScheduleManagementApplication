@@ -12,17 +12,9 @@ export class SalesTemplateComponent implements OnInit {
 
   public saleTemps: SalesTemplates[] = [];
   salesTempTitle: string = "Sales Templates"
-  public salesType: any[];
 
   constructor(private contributorService: ContributorService,
-    private alertify: AlertifyService) { 
-
-      this.contributorService.getSalesTypes().subscribe(result => {
-        this.salesType = result;
-        console.log(this.salesType);
-      }, error => console.error(error));
-
-    }
+    private alertify: AlertifyService) { }
 
   ngOnInit() {
 
@@ -31,6 +23,7 @@ export class SalesTemplateComponent implements OnInit {
 
   getSalesTemplates() {
     this.contributorService.getSalesTemplates().subscribe(results => {
+       // this.alertify.success('Contributors Details: ' + results);
         results.forEach(salesT => {
             this.saleTemps.push(salesT);
         });
