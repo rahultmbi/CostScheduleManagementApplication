@@ -27,11 +27,11 @@ export class RoyaltyTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getRoyaltyTemplates();
   }
 
   getRoyaltyTemplates() {
     this.contributorService.getRoyaltyTemplates().subscribe(results => {
-       // this.alertify.success('Contributors Details: ' + results);
         results.forEach(royaltyT => {
             this.royaltyTemps.push(royaltyT);
         });

@@ -18,7 +18,7 @@
                         Royality Type:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
-                            <option  value="0">Select Royality Type</option>
+                            <option  value="">Select Royality Type</option>
                                 <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
                                 {{royallity.type}}
                                 </option>
@@ -52,12 +52,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let salesT of saleTemps; index as i">                  
+                    <tr *ngFor="let salesT of royaltyTemps; index as i">                  
                        <!--<th scope="row">{{el.id}}</th>
                         --> 
                         <th scope="row">{{ i + 1 }}</th>
-                        <td>{{salesT.salesTemplateName}}</td>
-                        <td>{{salesT.salesType}}</td>
+                        <td>{{salesT.royaltyTemplateName}}</td>
+                        <td>{{salesT.royaltyType}}</td>
                     </tr>
                 </tbody>
             </table>

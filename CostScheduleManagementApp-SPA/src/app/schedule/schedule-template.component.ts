@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AlertifyService } from '../_service/alertify.service';
+import { ContributorService } from '../_service/contributor.service';
+import { IscheduleTemplate } from '../_model/scheduleTemplate';
 
 @Component({
   selector: 'app-schedule-template',
@@ -7,18 +10,31 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./schedule-template.component.css']
 })
 export class ScheduleTemplateComponent implements OnInit {
-
+  months;
   scheduleTemplateTitle: string = "Schedule Template";
 
-  public scheduleTemplatesData = [];
+  public scheduleTemplatesData: IscheduleTemplate[] = [];
 
-  constructor() { }
+  constructor(private contributorService: ContributorService, private alertify: AlertifyService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {  
+    console.log(this.getscheduleTemplates());
+    this.months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  } 
 
   savescheduleTemplate(scheduleTemplateForm: NgForm){
+    console.log("Data Saved!");
+  }
 
+  getscheduleTemplates() {
+    this.contributorService.getSecheduleTemplate().subscribe(results => {
+        results.forEach(scheduleT => {
+            this.scheduleTemplatesData.push(scheduleT);
+        });
+        
+    }, error => {
+        this.alertify.error(error);
+    });
   }
 
 }

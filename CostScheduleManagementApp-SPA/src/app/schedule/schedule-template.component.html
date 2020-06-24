@@ -7,17 +7,19 @@
             <form #scheduleTemplateForm="ngForm" (submit)="savescheduleTemplate(scheduleTemplateForm)">
                 <div class="form-group row">
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
-                        Publishing Name:</label>
+                        Schedule Template:</label>
                     <div class="col-md-8">
-                        <input id="CostTemplateName" placeholder="Enter CostTemplateName" name="CostTemplateName" type="text" class="form-control form-control-sm" ngModel>
+                        <input id="scheduleTemplate" placeholder="Enter Schedule Template" name="scheduleTemplate" type="text" class="form-control form-control-sm" ngModel>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="editor" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
-                        Publishing Week :</label>
+                        Publishing Month :</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="Publishing" name="Publishing" ngModel>
                         <option value="" selected>Select Publishing</option>
+                        <option  *ngFor="let month of months"  
+                                    [value]="month">{{month}}</option>                          
                             
                         </select>
                     </div>
@@ -43,13 +45,15 @@
                     <thead>
                         <tr>
                             <th>#  </th>
-                            <th> Publishing Week </th>
+                            <th> Schedule Template Name </th> 
+                            <th> Publishing Month </th> 
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let schedule of scheduleTemplatesData; index as i">                  
                             <th scope="row">{{ i + 1 }}</th>
-                            <td>{{schedule.costTemplateName}}</td>
+                            <td>{{schedule.templateName}}</td>
+                            <td>{{schedule.dateRange}}</td>
                         </tr>
                     </tbody>
                 </table>

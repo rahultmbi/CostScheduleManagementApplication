@@ -10,6 +10,7 @@
                         Author:</label>
                     <div class="col-md-8">
                         <select id="author" name="author" class="form-control form-control-sm">
+                            <option value="">Select Author</option>
                             <option *ngFor="let author of authors">
                                 {{author.name}}
                             </option>
@@ -21,6 +22,7 @@
                         Title:</label>
                     <div class="col-md-8">
                         <select id="title" name="author" class="form-control form-control-sm">
+                            <option value="">Select Title</option>
                             <option *ngFor="let title of titles">
                                 {{title.name}}
                             </option>
@@ -32,6 +34,7 @@
                         Editor:</label>
                     <div class="col-md-8">
                         <select id="editor" name="editor" class="form-control form-control-sm">
+                            <option value="">Select Editor</option>
                             <option *ngFor="let item of editors">
                                 {{item.name}}
                             </option>
@@ -43,7 +46,7 @@
                         Edition Type:</label>
                     <div class="col-md-8">
                         <select id="editionType" name="editionType" class="form-control form-control-sm">
-                            <option value="0">Select Type</option>
+                            <option value="">Select Type</option>
                             <option value="1">CD</option>
                             <option value="2">Book</option>
                         </select>
@@ -54,6 +57,7 @@
                         Material:</label>
                     <div class="col-md-8">
                         <select id="material" name="material" class="form-control form-control-sm">
+                            <option value="">Select Material</option>
                             <option *ngFor="let item of materials">
                                 {{item.coverType}}
                             </option>
@@ -65,7 +69,7 @@
                         ISBN:</label>
                     <div class="col-md-8">
                         <input id="isbn" name="isbn" type="text" class="form-control form-control-sm"
-                            [(ngModel)]="imprintObj.isbn">
+                            [(ngModel)]="imprintObj.isbn" placeholder="Isbn">
                     </div>
                 </div>
                 <div class="float-right">
