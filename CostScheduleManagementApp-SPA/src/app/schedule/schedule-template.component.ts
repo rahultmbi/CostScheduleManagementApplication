@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-schedule-template',
@@ -14,6 +15,10 @@ export class ScheduleTemplateComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  savescheduleTemplate(scheduleTemplateForm: NgForm){
+
   }
 
 }

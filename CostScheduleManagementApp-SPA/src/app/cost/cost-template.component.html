@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        {{costTemplateTitle}}
+       <b> {{costTemplateTitle}}</b>
     </div>
     <div class="card-body">
         <div class="col-6">
@@ -17,7 +17,7 @@
                         Imprint:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="imprint" name="imprint" ngModel>
-                        <option value="0" selected>Select Imprint</option>
+                        <option value="">Select Imprint</option>
                             <option *ngFor="let imprint of imprints" [value]="imprint.imprintId">
                             {{imprint.type}}
                             </option>
@@ -29,7 +29,7 @@
                         Royallity Template:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
-                            <option  value="0">Select Royallity</option>
+                            <option  value="">Select Royallity</option>
                                 <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
                                 {{royallity.type}}
                                 </option>
@@ -41,11 +41,9 @@
                         Sales Template:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="sales.salesTemplatesId" name="sales.salesTemplatesId" ngModel>
-                            <option  value="0">Select Sales</option>
-                            <option  value="1">Sales 1</option>
-                            <option  value="2">Sales 2</option>
+                            <option  value="">Select Sales</option>
                                 <option *ngFor="let sales of salesTemplate" [value]="sales.salesTemplatesId">
-                                {{sales.salesType}}
+                                {{sales.salesTemplateName}}
                                 </option>
                             </select>
                     </div>
@@ -58,7 +56,6 @@
             </form>
         </div>
         <br><br>
-        {{costTemplateForm.value | json}}
     </div>
 </div>
 <br>
@@ -84,7 +81,7 @@
                             <td>{{costT.costTemplateName}}</td>
                             <td>{{costT.imprintType}}</td>
                             <td>{{costT.royaltyTemplateName}}</td>
-                            <td>{{costT.salesType}}</td>
+                            <td>{{costT.salesTemplateName}}</td>
                         </tr>
                     </tbody>
                 </table>

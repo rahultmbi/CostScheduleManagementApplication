@@ -43,8 +43,8 @@ export class ContributorService {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditors');
   }
 
-  saveSalesTemplate(salesTemplate: string) {
-    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate?costTemplete=', "salesTemplate", {});
+  saveSalesTemplate(salesTemplate: SalesTemplates) {
+    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate/' + salesTemplate, {});
 
   }
 
