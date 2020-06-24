@@ -174,9 +174,6 @@ namespace API.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("RoyaltyName")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Type")
                         .HasColumnType("TEXT");
 
