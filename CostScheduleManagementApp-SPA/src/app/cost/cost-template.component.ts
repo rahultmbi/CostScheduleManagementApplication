@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ContributorService } from '../_service/contributor.service';
 import { AlertifyService } from '../_service/alertify.service';
+import { NgForm } from '@angular/forms';
+import { ISalesTemplates } from '../_model/CostTemplate';
 
 @Component({
   selector: 'app-cost-template',
@@ -13,6 +15,7 @@ export class CostTemplateComponent implements OnInit {
   public royallityTemplate: any[];
   public salesTemplate: any[];
   costTemplateTitle: string = "Cost Template";
+  public costTemplatesData: ISalesTemplates[] = [];
 
   constructor(private contributorService: ContributorService, private alertify: AlertifyService) { 
 
@@ -32,8 +35,29 @@ export class CostTemplateComponent implements OnInit {
   ngOnInit() {
   }
 
-  saveCostTemplate(){
+  saveCostTemplate(costTemplateForm: NgForm){
     console.log("data saved");
+    console.log("form submit: "+JSON.stringify(costTemplateForm.value));
+    this.contributorService.saveImprintData(costTemplateForm.value)
+    .subscribe(
+      data => {
+        console.log('Imprint data is saved!');
+      },
+      error => {
+        console.log(error);
+      }
+    );
   }
+
+  getCostTemplates() {
+    this.contributorService.getSalesTemplates().subscribe(results => {
+        results.forEach(costT => {
+            this.costTemplatesData.push(costT);
+        });
+    }, error => {
+        this.alertify.error(error);
+    });
+  }
+
 
 }

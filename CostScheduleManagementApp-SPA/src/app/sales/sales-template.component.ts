@@ -13,10 +13,6 @@ export class SalesTemplateComponent implements OnInit {
   public saleTemps: SalesTemplates[] = [];
   salesTempTitle: string = "Sales Templates"
 
-
-
-
-
   constructor(private contributorService: ContributorService,
     private alertify: AlertifyService) { }
 

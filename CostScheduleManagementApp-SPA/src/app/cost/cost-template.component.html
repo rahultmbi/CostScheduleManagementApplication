@@ -4,7 +4,7 @@
     </div>
     <div class="card-body">
         <div class="col-6">
-            <form #costTemplateForm="ngForm" (submit)="saveCostTemplate()">
+            <form #costTemplateForm="ngForm" (submit)="saveCostTemplate(costTemplateForm)">
                 <div class="form-group row">
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Cost TemplateName:</label>
@@ -61,3 +61,33 @@
         {{costTemplateForm.value | json}}
     </div>
 </div>
+<br>
+    <div class="card">
+        <div class="card-header">
+            {{costTemplateTitle + " Data"}}
+        </div>
+        <div class="card-body">
+           
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#  </th>
+                            <th>Template #</th>
+                            <th>CostTemplate Name</th>
+                            <th>Imprint Type</th>
+                            <th>Royallity Template Type</th>
+                            <th>sales Template Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let costT of costTemplatesData; index as i">                  
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{costT.CostTemplateName}}</td>
+                            <td>{{costT.imprintId}}</td>
+                            <td>{{costT.salesTemplatesId}}</td>
+                            <td>{{costT.royaltyTypeId}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
