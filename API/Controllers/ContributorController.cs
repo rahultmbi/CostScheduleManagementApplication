@@ -6,6 +6,7 @@ using CostManagementAPI.Data;
 using CostManagementAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace CostManagementAPI.Controllers
 {
@@ -110,6 +111,24 @@ namespace CostManagementAPI.Controllers
             var response = await _context.Imprint.ToListAsync();
 
             return Ok(response);
+        }
+
+        [HttpPost("saveCostTempleteData")]
+        public async Task<IActionResult> saveCostTempleteData(CostTemplete costTemplete)
+        {
+            string jsonData = JsonConvert.SerializeObject(costTemplete);
+            var costTempletes = new CostTemplete
+            {
+                ImprintId = costTemplete.ImprintId,
+                CostTemplateName = costTemplete.CostTemplateName
+            };
+
+         //   await _context.Imprint.AddAsync(imprints);
+         //   await _context.SaveChangesAsync();
+
+           var response = await _context.Imprint.ToListAsync();
+
+            return Ok(jsonData);
         }
         
     }

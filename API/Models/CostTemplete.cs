@@ -6,6 +6,7 @@ namespace CostManagementAPI.Models
     {
         [Key]
         public int CostTempleteId { get; set; }
+        public string CostTemplateName { get; set; }
          public int? ImprintId { get; set; }
          public int? RoyaltyTemplateId{ get; set; }
          public int? SalesTemplateId{ get; set; }
