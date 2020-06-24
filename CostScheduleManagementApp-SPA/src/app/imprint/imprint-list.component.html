@@ -1,6 +1,6 @@
-<div class="card">
-    <div class="card-header">
-        {{imprintTitle}}
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-book" aria-hidden="true"></i> {{imprintTitle}}
     </div>
     <div class="card-body">
         <div class="col-6">
@@ -11,8 +11,8 @@
                     <div class="col-md-8">
                         <select id="author" name="author" class="form-control form-control-sm">
                             <option value="">Select Author</option>
-                            <option *ngFor="let author of authors">
-                                {{author.name}}
+                            <option *ngFor="let author of imprintTable">
+                                {{author.contriutorName}}
                             </option>
                         </select>
                     </div>
@@ -21,10 +21,10 @@
                     <label for="title" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Title:</label>
                     <div class="col-md-8">
-                        <select id="title" name="author" class="form-control form-control-sm">
+                        <select id="title" name="title" class="form-control form-control-sm">
                             <option value="">Select Title</option>
-                            <option *ngFor="let title of titles">
-                                {{title.name}}
+                            <option *ngFor="let title of imprintTable">
+                                {{title.title}}
                             </option>
                         </select>
                     </div>
@@ -35,20 +35,9 @@
                     <div class="col-md-8">
                         <select id="editor" name="editor" class="form-control form-control-sm">
                             <option value="">Select Editor</option>
-                            <option *ngFor="let item of editors">
-                                {{item.name}}
+                            <option *ngFor="let item of imprintTable">
+                                {{item.editorName}}
                             </option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
-                        Edition Type:</label>
-                    <div class="col-md-8">
-                        <select id="editionType" name="editionType" class="form-control form-control-sm">
-                            <option value="">Select Type</option>
-                            <option value="1">CD</option>
-                            <option value="2">Book</option>
                         </select>
                     </div>
                 </div>
@@ -58,7 +47,7 @@
                     <div class="col-md-8">
                         <select id="material" name="material" class="form-control form-control-sm">
                             <option value="">Select Material</option>
-                            <option *ngFor="let item of materials">
+                            <option *ngFor="let item of imprintTable">
                                 {{item.coverType}}
                             </option>
                         </select>
@@ -81,14 +70,13 @@
     </div>
 </div>
 
-<div class="card">
-    <div class="card-header">
-        {{imprintTitle + " Data"}}
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-table" aria-hidden="true"></i> {{imprintTitle + " Data"}}
     </div>
     <div class="card-body">
-
         <table class="table table-striped">
-            <thead>
+            <thead class="thead-light">
                 <tr>
                     <th># </th>
                     <th>Title</th>

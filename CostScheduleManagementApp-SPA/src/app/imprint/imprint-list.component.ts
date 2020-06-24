@@ -31,38 +31,18 @@ export class ImprintListComponent implements OnInit {
   constructor(private contributorService: ContributorService) { }
 
   ngOnInit() {
-    this.contributorService.getContributor().subscribe(result => {
-      this.authors = result;
-    }, error => console.error(error));
-
-    this.contributorService.getEditors().subscribe(result => {
-      this.editors = result;
-    }, error => console.error(error));
-
-    this.contributorService.getDummyValue().subscribe(result => {
-      this.editionTypes = result;
-    }, error => console.error(error));
-
-    this.contributorService.getMaterial().subscribe(result => {
-      this.materials = result;
-    }, error => console.error(error));
-
     this.contributorService.getImprints().subscribe(result => {
       this.imprintTable = result;
     }, error => console.error(error));
-
   }
 
   saveImprint(form: NgForm) {
     console.log("form submit: " + JSON.stringify(form.value));
-    this.contributorService.saveImprintData(form.value)
-      .subscribe(
-        data => {
-          console.log('Imprint data is saved!');
-        },
-        error => {
-          console.log(error);
-        }
-      );
+    this.contributorService.saveImprintData(form.value).subscribe(data => {
+      console.log('Imprint data is saved!');
+    },
+      error => {
+        console.log(error);
+      });
   }
 }
