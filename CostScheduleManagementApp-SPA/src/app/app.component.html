@@ -1,9 +1,21 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<nav class='navbar navbar-expand navbar-light bg-light  p-0'>
+  <a class="navbar-brand" [routerLink]="['/welcome']">{{title}} <sup>1.0</sup></a>
+  <ul class='nav nav-pills'>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/welcome']">Home</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/imprint']">Imprint</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/royalty']">Royalty</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/sales']">Sales</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/schedule']">Schedule</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/cost']">Cost</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/report']">Report</a></li>
+    <li><a class='nav-link' routerLinkActive='active' [routerLink]="['/contributors']">Contributors</a></li>
+  </ul>
+
+  <div class="col-4 py-2 nav-divider pr-0 text-light">
+    <small class="text-ellipsis float-right" style="color: blue;">Hi, Admin</small>
 </div>
-<router-outlet>
-  <contributor-list></contributor-list>
-</router-outlet>
+</nav>
+<div class='container'>
+  <router-outlet></router-outlet>
+</div>

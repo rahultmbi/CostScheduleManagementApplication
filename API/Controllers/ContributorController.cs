@@ -68,8 +68,8 @@ namespace CostManagementAPI.Controllers
             return Ok(salesTypes);
         }
 
-        [HttpGet("getEditorilType")]
-        public async Task<IActionResult> GetEditorilType()
+        [HttpGet("getEditionType")]
+        public async Task<IActionResult> GetEditionType()
         {
             var editionType =  await _context.EditionTypes.ToListAsync();
 
@@ -82,6 +82,14 @@ namespace CostManagementAPI.Controllers
             var editors =  await _context.Editors.ToListAsync();
 
             return Ok(editors);
+        }
+
+        [HttpGet("getImprints")]
+        public async Task<IActionResult> getImprints()
+        {
+            var imprints =  await _context.Imprint.ToListAsync();
+
+            return Ok(imprints);
         }
 
         [HttpPost("saveImprintData")]

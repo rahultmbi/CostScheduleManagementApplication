@@ -10,12 +10,26 @@ import { AlertifyService } from './_service/alertify.service';
 import { HighchartsChartComponent } from 'highcharts-angular';
 import { EditorService } from './_service/editor.service';
 import { ContributorsListComponent } from './contributors/contributors-list.component';
+import { ImprintListComponent } from './imprint/imprint-list.component';
+import { RoyaltyTemplateComponent } from './royalty/royalty-template.component';
+import { CostTemplateComponent } from './cost/cost-template.component';
+import { SalesTemplateComponent } from './sales/sales-template.component';
+import { ScheduleTemplateComponent } from './schedule/schedule-template.component';
+import { FinalReportComponent } from './report/final-report.component';
+import { HomePageComponent } from './home/home-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HighchartsChartComponent,
-    ContributorsListComponent
+    ContributorsListComponent,
+    ImprintListComponent,
+    RoyaltyTemplateComponent,
+    CostTemplateComponent,
+    SalesTemplateComponent,
+    ScheduleTemplateComponent,
+    FinalReportComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
