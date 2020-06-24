@@ -26,10 +26,10 @@
                 </div>
                 <div class="form-group row">
                     <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
-                        Royallity Template:</label>
+                        Royalty Template:</label>
                     <div class="col-md-8">
-                        <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
-                            <option  value="">Select Royallity</option>
+                        <select class="form-control form-control-sm" id="Royalty" name="Royalty" ngModel>
+                            <option  value="">Select Royalty</option>
                                 <option *ngFor="let royallity of royaltyTemps" [value]="royallity.royaltyTypeId">
                                 {{royallity.royaltyTemplateName}}
                                 </option>
@@ -70,9 +70,9 @@
                         <tr>
                             <th>#  </th>
                             <th>CostTemplate Name</th>
-                            <th>Imprint Type</th>
-                            <th>Royallity Template Type</th>
-                            <th>Sales Template Type</th>
+                            <th>Imprint</th>
+                            <th>Royalty Template</th>
+                            <th>Sales Template</th>
                         </tr>
                     </thead>
                     <tbody>
