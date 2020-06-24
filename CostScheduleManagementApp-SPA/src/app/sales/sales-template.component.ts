@@ -15,28 +15,27 @@ export class SalesTemplateComponent implements OnInit {
   public salesType: any[];
 
   constructor(private contributorService: ContributorService,
-    private alertify: AlertifyService) { 
+    private alertify: AlertifyService) {
 
-      this.contributorService.getSalesTypes().subscribe(result => {
-        this.salesType = result;
-        console.log(this.salesType);
-      }, error => console.error(error));
+    this.contributorService.getSalesTypes().subscribe(result => {
+      this.salesType = result;
+      console.log(this.salesType);
+    }, error => console.error(error));
 
-    }
+  }
 
   ngOnInit() {
-
     this.getSalesTemplates();
   }
 
   getSalesTemplates() {
     this.contributorService.getSalesTemplates().subscribe(results => {
-        results.forEach(salesT => {
-            this.saleTemps.push(salesT);
-        });
+      results.forEach(salesT => {
+        this.saleTemps.push(salesT);
+      });
     }, error => {
-        this.alertify.error(error);
+      this.alertify.error(error);
     });
-}
+  }
 
 }

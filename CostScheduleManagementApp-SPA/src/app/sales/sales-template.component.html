@@ -1,6 +1,6 @@
-<div class="card">
-    <div class="card-header">
-        <b>{{salesTempTitle}}</b>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-cart-arrow-down" aria-hidden="true"></i> {{salesTempTitle}}
     </div>
     <div class="card-body">
         <div class="col-6">
@@ -9,8 +9,9 @@
                     <label for="title" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         SalesTemplateName:</label>
                     <div class="col-md-8">
-                        <input id="SalesTemplateName" name="SalesTemplateName" type="text" class="form-control form-control-sm"
-                            [(ngModel)]="SalesTemplateName" placeholder="Sales TemplateName">
+                        <input id="SalesTemplateName" name="SalesTemplateName" type="text"
+                            class="form-control form-control-sm" [(ngModel)]="SalesTemplateName"
+                            placeholder="Sales TemplateName">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -25,7 +26,7 @@
                         </select>
                     </div>
                 </div>
-                
+
                 <div class="float-right">
                     <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
                     <button class="btn btn-outline-primary" type="submit">Save</button>
@@ -36,29 +37,26 @@
 </div>
 <br>
 
-<div class="card">
-    <div class="card-header">
-        <b>{{salesTempTitle + " Data"}}</b>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-table" aria-hidden="true"></i> {{salesTempTitle + " Data"}}
     </div>
     <div class="card-body">
-       
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#  </th>
-                        <th>Template Name</th>
-                        <th>Sales Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let salesT of saleTemps; index as i">                  
-                       <!--<th scope="row">{{el.id}}</th>
-                        --> 
-                        <th scope="row">{{ i + 1 }}</th>
-                        <td>{{salesT.salesTemplateName}}</td>
-                        <td>{{salesT.salesType}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th># </th>
+                    <th>Template Name</th>
+                    <th>Sales Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let salesT of saleTemps; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{salesT.salesTemplateName}}</td>
+                    <td>{{salesT.salesType}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
