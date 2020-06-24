@@ -139,13 +139,5 @@ namespace CostManagementAPI.Controllers
 
             return Ok(imprints);
         }
-
-        [HttpGet("getScheduleTemplate")]
-        public async Task<IActionResult> getScheduleTemplate()
-        {
-            var editors =  await _context.ScheduleTemplates.ToListAsync();
-
-            return Ok(editors);
-        }
     }
 }

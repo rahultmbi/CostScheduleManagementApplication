@@ -6,7 +6,6 @@ namespace CostManagementAPI.Models
     {
         [Key]
         public int RoyaltyTypeId { get; set; }
-        public string RoyaltyName { get; set; }
         public string Type { get; set; }
     }
 }
