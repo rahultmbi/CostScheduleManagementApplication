@@ -79,4 +79,8 @@ export class ContributorService {
   getCostTemplateData() {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getCostTemplateData');
   }
+
+  getRoyaltyTemplates() {
+    return this.http.get<any[]>(this.baseUrl + 'RoyaltyTemplate/getRoyaltyTemplates');
+  }
 }
