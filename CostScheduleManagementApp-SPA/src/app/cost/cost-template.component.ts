@@ -33,15 +33,15 @@ export class CostTemplateComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getCostTemplates();
   }
 
   saveCostTemplate(costTemplateForm: NgForm){
-    console.log("data saved");
     console.log("form submit: "+JSON.stringify(costTemplateForm.value));
-    this.contributorService.saveImprintData(costTemplateForm.value)
+    this.contributorService.saveCostTemplate(JSON.stringify(costTemplateForm.value))
     .subscribe(
       data => {
-        console.log('Imprint data is saved!');
+        console.log('Imprint data is saved!' + JSON.stringify(data));
       },
       error => {
         console.log(error);
@@ -50,7 +50,7 @@ export class CostTemplateComponent implements OnInit {
   }
 
   getCostTemplates() {
-    this.contributorService.getSalesTemplates().subscribe(results => {
+    this.contributorService.getCostTemplateData().subscribe(results => {
         results.forEach(costT => {
             this.costTemplatesData.push(costT);
         });

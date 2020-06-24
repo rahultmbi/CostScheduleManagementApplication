@@ -114,22 +114,30 @@ namespace CostManagementAPI.Controllers
         }
 
         [HttpPost("saveCostTempleteData")]
-        public async Task<IActionResult> saveCostTempleteData(CostTemplete costTemplete)
+        public async Task<IActionResult> saveCostTempleteData(string costTemplete)
         {
             string jsonData = JsonConvert.SerializeObject(costTemplete);
-            var costTempletes = new CostTemplete
-            {
-                ImprintId = costTemplete.ImprintId,
-                CostTemplateName = costTemplete.CostTemplateName
-            };
+            // var costTempletes = new CostTemplete
+            // {
+            //     ImprintId = costTemplete.ImprintId,
+            //     CostTemplateName = costTemplete.CostTemplateName
+            // };
 
          //   await _context.Imprint.AddAsync(imprints);
          //   await _context.SaveChangesAsync();
+       //  costTemplete = "Rahul";
 
-           var response = await _context.Imprint.ToListAsync();
+           var response = await _context.CostTempletes.ToListAsync();
 
-            return Ok(jsonData);
+            return Ok(new { success = true, description = costTemplete });
         }
         
+        [HttpGet("getCostTemplateData")]
+        public async Task<IActionResult> getCostTemplateData()
+        {
+            var imprints =  await _context.CostTempletes.ToListAsync();
+
+            return Ok(imprints);
+        }
     }
 }

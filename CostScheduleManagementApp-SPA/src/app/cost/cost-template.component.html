@@ -64,7 +64,7 @@
 <br>
     <div class="card">
         <div class="card-header">
-            {{costTemplateTitle + " Data"}}
+           <b> {{costTemplateTitle + " Data"}}</b>
         </div>
         <div class="card-body">
            
@@ -72,20 +72,19 @@
                     <thead>
                         <tr>
                             <th>#  </th>
-                            <th>Template #</th>
                             <th>CostTemplate Name</th>
                             <th>Imprint Type</th>
                             <th>Royallity Template Type</th>
-                            <th>sales Template Type</th>
+                            <th>Sales Template Type</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let costT of costTemplatesData; index as i">                  
                             <th scope="row">{{ i + 1 }}</th>
-                            <td>{{costT.CostTemplateName}}</td>
-                            <td>{{costT.imprintId}}</td>
-                            <td>{{costT.salesTemplatesId}}</td>
-                            <td>{{costT.royaltyTypeId}}</td>
+                            <td>{{costT.costTemplateName}}</td>
+                            <td>{{costT.imprintType}}</td>
+                            <td>{{costT.royaltyTemplateName}}</td>
+                            <td>{{costT.salesType}}</td>
                         </tr>
                     </tbody>
                 </table>

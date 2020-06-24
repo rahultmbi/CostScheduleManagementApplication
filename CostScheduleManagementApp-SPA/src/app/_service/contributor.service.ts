@@ -43,8 +43,8 @@ export class ContributorService {
     return this.http.get<any[]>(this.baseUrl + 'Contributor/getEditors');
   }
 
-  saveSalesTemplate(salesTemplate: SalesTemplates) {
-    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate/' + salesTemplate, {});
+  saveSalesTemplate(salesTemplate: string) {
+    return this.http.post(this.baseUrl + 'Contributor/saveSalesTemplate?costTemplete=', "salesTemplate", {});
 
   }
 
@@ -65,5 +65,14 @@ export class ContributorService {
       "editionTypeId": 2,
       "type": "Book"
   }]);
+  }
+
+  saveCostTemplate(salesTemplate: string) {
+    return this.http.post(this.baseUrl + 'Contributor/saveCostTempleteData', salesTemplate);
+
+  }
+
+  getCostTemplateData() {
+    return this.http.get<any[]>(this.baseUrl + 'Contributor/getCostTemplateData');
   }
 }

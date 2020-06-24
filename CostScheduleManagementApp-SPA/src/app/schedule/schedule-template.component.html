@@ -1,1 +1,57 @@
-<p>schedule-template works!</p>
+<div class="card">
+    <div class="card-header">
+        {{scheduleTemplateTitle}}
+    </div>
+    <div class="card-body">
+        <div class="col-6">
+            <form #scheduleTemplateForm="ngForm" (submit)="savescheduleTemplate(scheduleTemplateForm)">
+                <div class="form-group row">
+                    <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Publishing Name:</label>
+                    <div class="col-md-8">
+                        <input id="CostTemplateName" placeholder="Enter CostTemplateName" name="CostTemplateName" type="text" class="form-control form-control-sm" ngModel>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="editor" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Publishing Week :</label>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="Publishing" name="Publishing" ngModel>
+                        <option value="0" selected>Select Publishing</option>
+                            
+                        </select>
+                    </div>
+                </div>
+               
+                <div class="float-right">
+                    <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
+                    <button class="btn btn-outline-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+        <br><br>
+    </div>
+</div>
+<br>
+    <div class="card">
+        <div class="card-header">
+           <b> {{scheduleTemplateTitle + " Data"}}</b>
+        </div>
+        <div class="card-body">
+           
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#  </th>
+                            <th> Publishing Week </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let schedule of scheduleTemplatesData; index as i">                  
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{schedule.costTemplateName}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>

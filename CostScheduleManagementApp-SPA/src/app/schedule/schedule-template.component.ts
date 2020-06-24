@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleTemplateComponent implements OnInit {
 
+  scheduleTemplateTitle: string = "Schedule Template";
+
+  public scheduleTemplatesData = [];
+
   constructor() { }
 
   ngOnInit() {
