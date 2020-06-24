@@ -130,6 +130,64 @@ namespace CostManagementAPI.Models
                 });
             }
 
+            if (!db.Imprint.Any())
+            {
+                db.Imprint.Add(new Imprint
+                {
+                    ContriutorName = "Ruskin Bond",
+                    Title = "The Blue Umbrella",
+                    EditorName = "Penguin India",
+                    Type ="Rupa Publications",
+                    CoverType = "Paperback",
+                    ISBN = "9788171673407"
+                });
+                db.Imprint.Add(new Imprint
+                {
+                    ContriutorName = "Jawaharlal Nehru",
+                    Title = "The Discovery of India ",
+                    EditorName = "Penguin India",
+                    Type ="Penguin India",
+                    CoverType = "Paperback",
+                    ISBN = "0143031031"
+                });
+                db.Imprint.Add(new Imprint
+                {
+                    ContriutorName = "Salman Rushdie",
+                    Title = "Midnight's Children",
+                    EditorName = "Rupa Publications",
+                    Type ="RHUK",
+                    CoverType = "Hardcover",
+                    ISBN = "9780099582076"
+                });
+                db.Imprint.Add(new Imprint
+                {
+                    ContriutorName = "Aravind Adiga",
+                    Title = "The White Tiger",
+                    EditorName = "HarperCollins",
+                    Type ="HarperCollins",
+                    CoverType = "Hardcover",
+                    ISBN = "8172238479"
+                });
+                db.Imprint.Add(new Imprint
+                {
+                    ContriutorName = "Ruskin Bond",
+                    Title = "The Perfect Murder",
+                    EditorName = "Rupa Publications",
+                    Type ="Rupa Publications",
+                    CoverType = "Kindle Edition",
+                    ISBN = "B01MY09C7U"
+                });
+                db.Imprint.Add(new Imprint
+                {
+                    ContriutorName = "Amish",
+                    Title = "The Immortals of Meluha",
+                    EditorName = "Westland",
+                    Type ="Westland",
+                    CoverType = "Paperback",
+                    ISBN = "9789380658742"
+                });
+            }
+
             db.SaveChanges();
         }
     }
