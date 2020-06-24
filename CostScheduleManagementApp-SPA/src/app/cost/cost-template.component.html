@@ -30,8 +30,8 @@
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
                             <option  value="">Select Royallity</option>
-                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
-                                {{royallity.type}}
+                                <option *ngFor="let royallity of royaltyTemps" [value]="royallity.royaltyTypeId">
+                                {{royallity.royaltyTemplateName}}
                                 </option>
                             </select>
                     </div>

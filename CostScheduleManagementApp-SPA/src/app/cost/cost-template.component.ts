@@ -3,6 +3,7 @@ import { ContributorService } from '../_service/contributor.service';
 import { AlertifyService } from '../_service/alertify.service';
 import { NgForm } from '@angular/forms';
 import { ISalesTemplates } from '../_model/CostTemplate';
+import { RoyaltyTemplate } from '../_model/RoyaltyTemplate';
 
 @Component({
   selector: 'app-cost-template',
@@ -16,6 +17,7 @@ export class CostTemplateComponent implements OnInit {
   public salesTemplate: any[];
   costTemplateTitle: string = "Cost Template";
   public costTemplatesData: ISalesTemplates[] = [];
+  public royaltyTemps: RoyaltyTemplate[] = [];
 
   constructor(private contributorService: ContributorService, private alertify: AlertifyService) { 
 
@@ -30,6 +32,14 @@ export class CostTemplateComponent implements OnInit {
       this.contributorService.getSalesTemplates().subscribe(result => {
         this.salesTemplate = result;
       }, error => console.error(error));
+
+        this.contributorService.getRoyaltyTemplates().subscribe(results => {
+            results.forEach(royaltyT => {
+                this.royaltyTemps.push(royaltyT);
+            });
+        }, error => {
+            this.alertify.error(error);
+        });
   }
 
   ngOnInit() {
