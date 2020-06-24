@@ -1,6 +1,6 @@
-<div class="card">
-    <div class="card-header">
-        {{royaltyTemplateTitle}}
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-credit-card" aria-hidden="true"></i> {{royaltyTemplateTitle}}
     </div>
     <div class="card-body">
         <div class="col-6">
@@ -9,23 +9,24 @@
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Royalty Template Name:</label>
                     <div class="col-md-8">
-                        <input id="RoyaltyTemplateName" placeholder="Enter Royalty Template Name" name="RoyaltyTemplateName" type="text" class="form-control form-control-sm" ngModel>
+                        <input id="RoyaltyTemplateName" placeholder="Enter Royalty Template Name"
+                            name="RoyaltyTemplateName" type="text" class="form-control form-control-sm" ngModel>
                     </div>
                 </div>
-               
+
                 <div class="form-group row">
                     <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
-                        Royality Type:</label>
+                        Royalty Type:</label>
                     <div class="col-md-8">
-                        <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
-                            <option  value="">Select Royality Type</option>
-                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
-                                {{royallity.type}}
-                                </option>
-                            </select>
+                        <select class="form-control form-control-sm" id="royalty" name="royalty" ngModel>
+                            <option value="">Select Royalty Type</option>
+                            <option *ngFor="let royalty of royaltyTemplate" [value]="royalty.royaltyTypeId">
+                                {{royalty.type}}
+                            </option>
+                        </select>
                     </div>
                 </div>
-              
+
                 <div class="float-right">
                     <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
                     <button class="btn btn-outline-primary" type="submit">Save</button>
@@ -33,33 +34,31 @@
             </form>
         </div>
         <br><br>
-       
+
     </div>
 </div>
-<br> 
-<div class="card">
-    <div class="card-header">
-        {{royaltyTemplateGridTitle}}
+<br>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-table" aria-hidden="true"></i> {{royaltyTemplateGridTitle}}
     </div>
     <div class="card-body">
-       
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>#  </th>
-                        <th>Royalty Template Name</th>
-                        <th>Royalty Type</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let salesT of royaltyTemps; index as i">                  
-                       <!--<th scope="row">{{el.id}}</th>
-                        --> 
-                        <th scope="row">{{ i + 1 }}</th>
-                        <td>{{salesT.royaltyTemplateName}}</td>
-                        <td>{{salesT.royaltyType}}</td>
-                    </tr>
-                </tbody>
-            </table>
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th># </th>
+                    <th>Royalty Template Name</th>
+                    <th>Royalty Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let salesT of royaltyTemps; index as i">
+                    <!--<th scope="row">{{el.id}}</th> -->
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{salesT.royaltyTemplateName}}</td>
+                    <td>{{salesT.royaltyType}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
