@@ -1,4 +1,4 @@
-export interface ISalesTemplates
+export interface ICostTemplate
 {
     costTemplatesId: number;
     costTemplateName: string;

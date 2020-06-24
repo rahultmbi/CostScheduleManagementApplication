@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ContributorService } from '../_service/contributor.service';
-import { AlertifyService } from '../_service/alertify.service';
+import { AlertifyService } from '../_service/alertify.service'; 
 
 @Component({
   selector: 'app-royalty-template',
@@ -8,7 +8,8 @@ import { AlertifyService } from '../_service/alertify.service';
   styleUrls: ['./royalty-template.component.css']
 })
 export class RoyaltyTemplateComponent implements OnInit {
-
+  private mm : string ;
+  months;
   public royallityTemplate: any[];
   costTemplateTitle: string = "Royalty Template";
 
@@ -21,10 +22,10 @@ export class RoyaltyTemplateComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-  }
+    ngOnInit() {  
+    }  
 
-  saveRoyaltyTemplate(){
+    saveRoyaltyTemplate(){
     console.log("data saved");
   }
 

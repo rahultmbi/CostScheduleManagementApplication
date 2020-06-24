@@ -187,7 +187,41 @@ namespace CostManagementAPI.Models
                     ISBN = "9789380658742"
                 });
             }
+           
+           if (!db.ScheduleTemplates.Any())
+            {
+                db.ScheduleTemplates.Add(new ScheduleTemplates
+                {
+                    TemplateName = "Batch A",
+                    DateRange = "Jan"
+                });
+                db.ScheduleTemplates.Add(new ScheduleTemplates
+                {
+                    TemplateName = "Batch A",
+                    DateRange = "Mar"
+                });
+                db.ScheduleTemplates.Add(new ScheduleTemplates
+                {
+                    TemplateName = "Batch A",
+                    DateRange = "Apr"
+                });
+                db.ScheduleTemplates.Add(new ScheduleTemplates
+                {
+                    TemplateName = "Batch A",
+                    DateRange = "Aug"
+                });
 
+                db.ScheduleTemplates.Add(new ScheduleTemplates
+                {
+                    TemplateName = "Batch A",
+                    DateRange = "Sep"
+                });
+                db.ScheduleTemplates.Add(new ScheduleTemplates
+                {
+                    TemplateName = "Batch A",
+                    DateRange = "Dec"
+                });
+            }
             db.SaveChanges();
         }
     }

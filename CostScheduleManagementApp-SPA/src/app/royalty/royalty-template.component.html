@@ -22,6 +22,8 @@
                                 <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
                                 {{royallity.type}}
                                 </option>
+                                    <option  *ngFor="let month of months"  
+                                    [selected]="month">{{month}}</option>    
                             </select>
                     </div>
                 </div>

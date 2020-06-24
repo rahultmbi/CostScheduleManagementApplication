@@ -65,12 +65,6 @@ namespace CostManagementAPI.Controllers
             return Ok(tockenHandler.WriteToken(token));
         }
 
-        [HttpGet("gethello")]
-        public string getHello()
-        {
-
-            return "Hello";
-        }
 
     //     [HttpPost("register")]
     //     public async Task<IActionResult> Register(UserForLoginDto userForRegisterDto)
