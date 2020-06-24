@@ -9,9 +9,20 @@
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Author:</label>
                     <div class="col-md-8">
-                        <select id="author" name="author" class="form-control form-control-sm" [(ngModel)]="imprintObj.contributorId">
-                            <option *ngFor="let author of authors | async">
+                        <select id="author" name="author" class="form-control form-control-sm">
+                            <option *ngFor="let author of authors">
                                 {{author.name}}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="title" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Title:</label>
+                    <div class="col-md-8">
+                        <select id="title" name="author" class="form-control form-control-sm">
+                            <option *ngFor="let title of titles">
+                                {{title.name}}
                             </option>
                         </select>
                     </div>
@@ -20,8 +31,8 @@
                     <label for="editor" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Editor:</label>
                     <div class="col-md-8">
-                        <select id="editor" name="editor"  class="form-control form-control-sm" [(ngModel)]="imprintObj.editorId">
-                            <option *ngFor="let item of editors | async">
+                        <select id="editor" name="editor" class="form-control form-control-sm">
+                            <option *ngFor="let item of editors">
                                 {{item.name}}
                             </option>
                         </select>
@@ -31,10 +42,10 @@
                     <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Edition Type:</label>
                     <div class="col-md-8">
-                        <select id="editionType" name="editionType"  class="form-control form-control-sm" [(ngModel)]="imprintObj.type">
-                            <option  value="0">Select Type</option>
-                            <option  value="1">CD</option>
-                            <option  value="2">Book</option>
+                        <select id="editionType" name="editionType" class="form-control form-control-sm">
+                            <option value="0">Select Type</option>
+                            <option value="1">CD</option>
+                            <option value="2">Book</option>
                         </select>
                     </div>
                 </div>
@@ -42,8 +53,8 @@
                     <label for="material" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Material:</label>
                     <div class="col-md-8">
-                        <select id="material" name="material"  class="form-control form-control-sm">
-                            <option *ngFor="let item of materials | async">
+                        <select id="material" name="material" class="form-control form-control-sm">
+                            <option *ngFor="let item of materials">
                                 {{item.coverType}}
                             </option>
                         </select>
@@ -53,15 +64,46 @@
                     <label for="isbn" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         ISBN:</label>
                     <div class="col-md-8">
-                        <input id="isbn" name="isbn" type="text" class="form-control form-control-sm" [(ngModel)]="imprintObj.isbn">
+                        <input id="isbn" name="isbn" type="text" class="form-control form-control-sm"
+                            [(ngModel)]="imprintObj.isbn">
                     </div>
                 </div>
-                <div>
+                <div class="float-right">
                     <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
                     <button class="btn btn-outline-primary" type="submit">Save</button>
                 </div>
             </form>
         </div>
-        {{imprintForm.value | json}}
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        {{imprintTitle + " Data"}}
+    </div>
+    <div class="card-body">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th># </th>
+                    <th>Title</th>
+                    <th>Author Name</th>
+                    <th>Edition Type</th>
+                    <th>Material</th>
+                    <th>ISBN</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let imprint of imprintTable; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{imprint.title}}</td>
+                    <td>{{imprint.contriutorName}}</td>
+                    <td>{{imprint.editorName}}</td>
+                    <td>{{imprint.coverType}}</td>
+                    <td>{{imprint.isbn}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

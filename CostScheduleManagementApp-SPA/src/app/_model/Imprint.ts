@@ -1,6 +1,8 @@
 export interface IImprint {
-    contributorId: number;
-    editorId: number;
+    contriutorName: string;
+    title:string;
+    editorName: string;
+    coverType: string;
     type: string;
-    isbn: number;
+    ISBN: string;
 }

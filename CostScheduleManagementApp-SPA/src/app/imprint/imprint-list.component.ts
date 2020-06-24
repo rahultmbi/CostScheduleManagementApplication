@@ -13,36 +13,56 @@ export class ImprintListComponent implements OnInit {
 
   public imprintTitle: string = 'Imprint / Edition';
   public imprintObj: IImprint = {
-    contributorId: null,
-    editorId: null,
-    isbn: null,
+    contriutorName: null,
+    title: null,
+    editorName: null,
+    coverType: null,
+    ISBN: null,
     type: null
   };
 
-  authors: Observable<string[]>;
-  editors: Observable<string[]>;
-  editionTypes: Observable<object[]>;
-  materials: Observable<string[]>;
+  public imprintTable: any[];
+
+  authors: any[];
+  editors: any[];
+  editionTypes: any[];
+  materials: any[];
 
   constructor(private contributorService: ContributorService) { }
 
   ngOnInit() {
-    this.authors = this.contributorService.getContributor();
-    this.editors = this.contributorService.getEditors();
-    this.editionTypes = this.contributorService.getDummyValue();
-    this.materials = this.contributorService.getMaterial();
+    this.contributorService.getContributor().subscribe(result => {
+      this.authors = result;
+    }, error => console.error(error));
+
+    this.contributorService.getEditors().subscribe(result => {
+      this.editors = result;
+    }, error => console.error(error));
+
+    this.contributorService.getDummyValue().subscribe(result => {
+      this.editionTypes = result;
+    }, error => console.error(error));
+
+    this.contributorService.getMaterial().subscribe(result => {
+      this.materials = result;
+    }, error => console.error(error));
+
+    this.contributorService.getImprints().subscribe(result => {
+      this.imprintTable = result;
+    }, error => console.error(error));
+
   }
 
-  saveImprint(form: NgForm){
-    console.log("form submit: "+JSON.stringify(form.value));
+  saveImprint(form: NgForm) {
+    console.log("form submit: " + JSON.stringify(form.value));
     this.contributorService.saveImprintData(form.value)
-    .subscribe(
-      data => {
-        console.log('Imprint data is saved!');
-      },
-      error => {
-        console.log(error);
-      }
-    );
+      .subscribe(
+        data => {
+          console.log('Imprint data is saved!');
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 }
