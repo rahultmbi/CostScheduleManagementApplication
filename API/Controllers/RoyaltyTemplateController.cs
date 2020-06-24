@@ -66,6 +66,14 @@ namespace CostManagementAPI.Controllers
         var response = await _context.CostTempletes.ToListAsync();
         return Ok(response);
         }
+
+        [HttpGet("getRoyaltyTemplates")]
+        public async Task<IActionResult> getRoyaltyTemplates()
+        {
+            var royaltyTemplates =  await _context.RoyaltyTemplates.ToListAsync();
+
+            return Ok(royaltyTemplates);
+        }
         
     }
 }
