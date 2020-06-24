@@ -222,6 +222,39 @@ namespace CostManagementAPI.Models
                     DateRange = "Dec"
                 });
             }
+
+             if (!db.RoyaltyTemplates.Any())
+            {
+                 db.RoyaltyTemplates.Add(new RoyaltyTemplate
+                {
+                    RoyaltyTemplateName = "Royalty Free Edition",
+                    RoyaltyType = "ROYALTIES PAID ON RETAIL SALES",
+                });
+                
+                db.RoyaltyTemplates.Add(new RoyaltyTemplate
+                {
+                    RoyaltyTemplateName = "Profit Split",
+                    RoyaltyType = "PROFIT SHARING",
+                });
+                 
+                db.RoyaltyTemplates.Add(new RoyaltyTemplate
+                {
+                    RoyaltyTemplateName = "Online Sales Royality",
+                    RoyaltyType = "ROYALTIES PAID ON RETAIL SALES",
+                });
+                
+                db.RoyaltyTemplates.Add(new RoyaltyTemplate
+                {
+                    RoyaltyTemplateName = "Gain Share",
+                    RoyaltyType = "PROFIT SHARING",
+                });
+                 db.RoyaltyTemplates.Add(new RoyaltyTemplate
+                {
+                    RoyaltyTemplateName = "Gross Revenue Royalty",
+                    RoyaltyType = "ROYALTIES PAID ON NET SALES",
+                });
+                 
+            }
             db.SaveChanges();
         }
     }
