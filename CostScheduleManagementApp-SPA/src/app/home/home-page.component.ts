@@ -23,7 +23,7 @@ export class HomePageComponent implements OnInit {
          type: "pie"
       },
       title: {
-        text: 'Cost Schedule Management'
+        text: 'Sales Per Royality Report'
     },
     tooltip: {
         pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -51,7 +51,7 @@ export class HomePageComponent implements OnInit {
       },
       yAxis: {          
          title:{
-            text:""
+            text:"dfghjk dhfj"
          } 
       },
       
@@ -59,34 +59,22 @@ export class HomePageComponent implements OnInit {
         name: 'Brands',
         colorByPoint: true,
         data: [{
-            name: 'Chrome',
+            name: 'Royalty Free Edition',
             y: 61.41,
             sliced: true,
             selected: true
         }, {
-            name: 'Internet Explorer',
+            name: 'Profit Split',
             y: 11.84
         }, {
-            name: 'Firefox',
+            name: 'Online Sales Royality',
             y: 10.85
         }, {
-            name: 'Edge',
+            name: 'Gain Share',
             y: 4.67
         }, {
-            name: 'Safari',
+            name: 'Gross Revenue Royalty',
             y: 4.18
-        }, {
-            name: 'Sogou Explorer',
-            y: 1.64
-        }, {
-            name: 'Opera',
-            y: 1.6
-        }, {
-            name: 'QQ',
-            y: 1.2
-        }, {
-            name: 'Other',
-            y: 2.61
         }]
       }]
     }
@@ -96,7 +84,7 @@ export class HomePageComponent implements OnInit {
         type: 'column'
     },
     title: {
-        text: 'Cost Management Report'
+        text: 'Monthly Schedule Report'
     },
     credits: {
       enabled: false
@@ -121,7 +109,7 @@ export class HomePageComponent implements OnInit {
     yAxis: {
         min: 0,
         title: {
-            text: ''
+            text: 'Schedule(ink)'
         }
     },
     tooltip: {
@@ -134,25 +122,32 @@ export class HomePageComponent implements OnInit {
     },
     plotOptions: {
         column: {
-          //  pointPadding: 0.2,
             borderWidth: 0
         }
     },
     series: [{
-        name: 'Rohit',
-        data: [49, 71, 106, 129, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        name: 'Batch A',
+        data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 956, 544]
 
     }, {
-        name: 'Rahul',
-        data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+        name: 'Batch B',
+        data: [836, 788, 985, 934, 1060, 845, 1050, 1043, 912, 835, 1066, 923]
 
     }, {
-        name: 'Venkata',
-        data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+        name: 'Batch C',
+        data: [489, 388, 393, 414, 470, 483, 590, 596, 524, 652, 593, 512]
 
     }, {
-        name: 'Naresh',
-        data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+        name: 'Batch D',
+        data: [424, 332, 345, 397, 526, 755, 574, 604, 476, 391, 468, 511]
+
+    },{
+        name: 'Batch E',
+        data: [489, 388, 393, 414, 470, 483, 590, 596, 524, 652, 593, 512]
+
+    },{
+        name: 'Batch F',
+        data: [49, 71, 106, 129, 144, 176, 135, 148, 216, 194, 956, 544]
 
     }]
     
