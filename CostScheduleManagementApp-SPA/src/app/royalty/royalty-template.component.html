@@ -1,1 +1,38 @@
-<p>royalty-template works!</p>
+<div class="card">
+    <div class="card-header">
+        {{royaltyTemplateTitle}}
+    </div>
+    <div class="card-body">
+        <div class="col-6">
+            <form #royaltyTemplateForm="ngForm" (submit)="saveRoyaltyTemplate()">
+                <div class="form-group row">
+                    <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Royalty Template Name:</label>
+                    <div class="col-md-8">
+                        <input id="RoyaltyTemplateName" placeholder="Enter Royalty Template Name" name="RoyaltyTemplateName" type="text" class="form-control form-control-sm" ngModel>
+                    </div>
+                </div>
+               
+                <div class="form-group row">
+                    <label for="editionType" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
+                        Royality Type:</label>
+                    <div class="col-md-8">
+                        <select class="form-control form-control-sm" id="royallity" name="royallity" ngModel>
+                            <option  value="0">Select Royality Type</option>
+                                <option *ngFor="let royallity of royallityTemplate" [value]="royallity.royaltyTypeId">
+                                {{royallity.type}}
+                                </option>
+                            </select>
+                    </div>
+                </div>
+              
+                <div class="float-right">
+                    <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
+                    <button class="btn btn-outline-primary" type="submit">Save</button>
+                </div>
+            </form>
+        </div>
+        <br><br>
+        {{royaltyTemplateForm.value | json}}
+    </div>
+</div>
