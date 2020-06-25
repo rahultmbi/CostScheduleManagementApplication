@@ -1,38 +1,21 @@
-<p>final-report works!</p>
-<div class="card">
-    <div class="card-header">
-       <b> {{reportTitle}}</b>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-files-o" aria-hidden="true"></i> {{reportTitle}}
     </div>
     <div class="card-body">
         <div class="col-6">
             <form #reportTemplateForm="ngForm" (submit)="ReportGeneration(reportTemplateForm)">
-               
-               
                 <div class="form-group row">
                     <label for="costTemp" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Cost Template:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="cost" name="cost" ngModel>
-                            <!--<option  value="">Select Cost Template</option>-->
-                                <option *ngFor="let cost of costTemplate" [value]="cost.costTemplateId">
+                            <option *ngFor="let cost of costTemplate" [value]="cost.costTemplateId">
                                 {{cost.costTemplateName}}
-                                </option>
-                            </select>
+                            </option>
+                        </select>
                     </div>
                 </div>
-                <!--<div class="form-group row">
-                    <label for="material" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
-                        Schedule Template:</label>
-                    <div class="col-md-8">
-                        <select class="form-control form-control-sm" id="schedule.scheduleTemplateId" name="schedule.scheduleTemplateId" ngModel>
-                            <option  value="">Select Schedule Template</option>
-                                <option *ngFor="let schedule of scheduleTemplate" [value]="schedule.scheduleTemplateId">
-                                {{schedule.templateName}}
-                                </option>
-                            </select>
-                    </div>
-                </div>-->
-                
                 <div class="float-right">
                     <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
                     <button class="btn btn-outline-primary" type="submit">Generate</button>
@@ -43,37 +26,34 @@
     </div>
 </div>
 <br>
-    <div class="card">
-        <div class="card-header">
-           <b> {{"Cost statement Including Revenues, Expenses, and Profits"}}</b>
-        </div>
-        <div class="card-body">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td></td>
-                        <th>Material Cost</th>
-                        <th>Opertaional Cost</th>
-                        <th>Roaylty Cost</th>
-                        <th>Sales Revenue</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>                  
-                        <tr *ngFor="let schedule of scheduleTemplate; index as i;index as j;index as k;index as l;index as m;"> 
-                            <th scope="row">{{schedule.templateName}}</th>                 
-                            <!--<th scope="row">{{ i + 1 }}</th>-->
-                            <td>{{ i + 1 }}</td>
-                            <td>{{ j + 3 }}</td>
-                            <td>{{ k + 2 }}</td>
-                            <td>{{ l + 6 }}</td>
-                            
-                    </tr>
-                </tbody>
-                <tfoot> Cost and Revenue values are in &#8377; Lakhs </tfoot>
-            </table>
-            <label>Profit / Loss will be calculated / generated</label>
-               
-        </div>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-table" aria-hidden="true"></i> {{"Cost statement Including Revenues, Expenses, and Profits"}}
     </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <td></td>
+                    <th>Material Cost</th>
+                    <th>Opertaional Cost</th>
+                    <th>Roaylty Cost</th>
+                    <th>Sales Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <tr *ngFor="let schedule of scheduleTemplate; index as i;index as j;index as k;index as l;index as m;">
+                    <th scope="row">{{schedule.templateName}}</th>
+                    <!--<th scope="row">{{ i + 1 }}</th>-->
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ j + 3 }}</td>
+                    <td>{{ k + 2 }}</td>
+                    <td>{{ l + 6 }}</td>
+                </tr>
+            </tbody>
+            <small class="text-muted"> Cost and Revenue values are in &#8377; Lakhs </small>
+        </table>
+        <small class="text-muted">Profit / Loss will be calculated / generated</small>
+    </div>
+</div>
