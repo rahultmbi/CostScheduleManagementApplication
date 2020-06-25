@@ -19,8 +19,8 @@
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="imprint" name="imprint" ngModel>
                             <option value="">Select Imprint</option>
-                            <option *ngFor="let imprint of imprints" [value]="imprint.imprintId">
-                                {{imprint.type}}
+                            <option *ngFor="let imprint of imprintTable" [value]="imprint.imprintId">
+                                {{imprint.title}}
                             </option>
                         </select>
                     </div>

@@ -18,6 +18,7 @@ export class CostTemplateComponent implements OnInit {
   costTemplateTitle: string = "Cost Template";
   public costTemplatesData: ISalesTemplates[] = [];
   public royaltyTemps: RoyaltyTemplate[] = [];
+  public imprintTable: any[];
 
   constructor(private contributorService: ContributorService, private alertify: AlertifyService) {
 
@@ -44,6 +45,10 @@ export class CostTemplateComponent implements OnInit {
 
   ngOnInit() {
     this.getCostTemplates();
+
+    this.contributorService.getImprints().subscribe(result => {
+      this.imprintTable = result;
+    }, error => console.error(error));
   }
 
   saveCostTemplate(costTemplateForm: NgForm) {
