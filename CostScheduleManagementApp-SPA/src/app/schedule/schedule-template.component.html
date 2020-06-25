@@ -1,6 +1,6 @@
-<div class="card">
-    <div class="card-header">
-        {{scheduleTemplateTitle}}
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-calendar-check-o" aria-hidden="true"></i> {{scheduleTemplateTitle}}
     </div>
     <div class="card-body">
         <div class="col-6">
@@ -9,7 +9,8 @@
                     <label for="author" class="col-md-4 col-form-label col-form-label-sm font-weight-bold pr-0">
                         Schedule Template:</label>
                     <div class="col-md-8">
-                        <input id="scheduleTemplate" placeholder="Enter Schedule Template" name="scheduleTemplate" type="text" class="form-control form-control-sm" ngModel>
+                        <input id="scheduleTemplate" placeholder="Enter Schedule Template" name="scheduleTemplate"
+                            type="text" class="form-control form-control-sm" ngModel>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -17,14 +18,12 @@
                         Publishing Month :</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="Publishing" name="Publishing" ngModel>
-                        <option value="" selected>Select Publishing</option>
-                        <option  *ngFor="let month of months"  
-                                    [value]="month">{{month}}</option>                          
-                            
+                            <option value="" selected>Select Publishing</option>
+                            <option *ngFor="let month of months" [value]="month">{{month}}</option>
                         </select>
                     </div>
                 </div>
-               
+
                 <div class="float-right">
                     <button class="btn btn-outline-secondary mr-2" type="reset">Cancel</button>
                     <button class="btn btn-outline-primary" type="submit">Save</button>
@@ -35,27 +34,26 @@
     </div>
 </div>
 <br>
-    <div class="card">
-        <div class="card-header">
-           <b> {{scheduleTemplateTitle + " Data"}}</b>
-        </div>
-        <div class="card-body">
-           
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>#  </th>
-                            <th> Schedule Template Name </th> 
-                            <th> Publishing Month </th> 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let schedule of scheduleTemplatesData; index as i">                  
-                            <th scope="row">{{ i + 1 }}</th>
-                            <td>{{schedule.templateName}}</td>
-                            <td>{{schedule.dateRange}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-        </div>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-table" aria-hidden="true"></i> {{scheduleTemplateTitle + " Data"}}
     </div>
+    <div class="card-body">
+        <table class="table table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th># </th>
+                    <th> Schedule Template Name </th>
+                    <th> Publishing Month </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let schedule of scheduleTemplatesData; index as i">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{schedule.templateName}}</td>
+                    <td>{{schedule.dateRange}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
