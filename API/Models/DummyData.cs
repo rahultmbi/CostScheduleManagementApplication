@@ -255,6 +255,60 @@ namespace CostManagementAPI.Models
                 });
                  
             }
+
+ if (!db.CostTempletes.Any())
+            {
+                 db.CostTempletes.Add(new CostTemplete
+                {
+                    CostTemplateName = "CT-For-A",
+                    RoyaltyTemplateId = 1,
+                    RoyaltyTemplateName = "Royalty Free Edition",
+                    ImprintId = 4,
+                    ImprintType = "Rupa Publications",
+                    SalesType = "Supplier",
+                    SalesTemplateId = 2
+                });
+                
+                 db.CostTempletes.Add(new CostTemplete
+                {
+                    CostTemplateName = "CT-For-B",
+                    RoyaltyTemplateId = 2,
+                    RoyaltyTemplateName = "Profit Split",
+                    ImprintId = 5,
+                    ImprintType = "Penguin India",
+                    SalesType = "Competitors",
+                    SalesTemplateId = 3
+                });
+                 
+                db.CostTempletes.Add(new CostTemplete
+                {
+                    CostTemplateName = "CT-For-C",
+                    RoyaltyTemplateId = 3,
+                    RoyaltyTemplateName = "Online Sales Royality",
+                    ImprintId =6,
+                    ImprintType = "Rupa Publications",
+                    SalesType = "Distributors",
+                    SalesTemplateId = 4
+                });
+                
+                db.CostTempletes.Add(new CostTemplete
+                {
+                    CostTemplateName = "CT-For-D",
+                    RoyaltyTemplateId = 4,
+                    RoyaltyTemplateName = "Gain Share",
+                    ImprintId = 7,
+                    ImprintType = "HarperCollins",
+                    SalesType = "Supplier",
+                    SalesTemplateId = 2
+                });
+
+                
+            }
+
+
+
+
+
             db.SaveChanges();
         }
     }
