@@ -10,6 +10,7 @@
                         Cost Template:</label>
                     <div class="col-md-8">
                         <select class="form-control form-control-sm" id="cost" name="cost" ngModel>
+                            <option value="">Select Cost Template</option>
                             <option *ngFor="let cost of costTemplate" [value]="cost.costTemplateId">
                                 {{cost.costTemplateName}}
                             </option>
