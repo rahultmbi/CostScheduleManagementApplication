@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ContributorService } from '../_service/contributor.service';
-import { AlertifyService } from '../_service/alertify.service';
 import { NgForm } from '@angular/forms';
 import { ISalesTemplates } from '../_model/CostTemplate';
 import { RoyaltyTemplate } from '../_model/RoyaltyTemplate';
+import { AlertifyService } from '../_service/alertify.service';
+import { ContributorService } from '../_service/contributor.service';
 
 @Component({
   selector: 'app-cost-template',
@@ -19,53 +19,53 @@ export class CostTemplateComponent implements OnInit {
   public costTemplatesData: ISalesTemplates[] = [];
   public royaltyTemps: RoyaltyTemplate[] = [];
 
-  constructor(private contributorService: ContributorService, private alertify: AlertifyService) { 
+  constructor(private contributorService: ContributorService, private alertify: AlertifyService) {
 
     this.contributorService.getImprints().subscribe(result => {
       this.imprints = result;
     }, error => console.error(error));
 
     this.contributorService.getRoyaltyTypes().subscribe(result => {
-        this.royallityTemplate = result;
-      }, error => console.error(error));
+      this.royallityTemplate = result;
+    }, error => console.error(error));
 
-      this.contributorService.getSalesTemplates().subscribe(result => {
-        this.salesTemplate = result;
-      }, error => console.error(error));
+    this.contributorService.getSalesTemplates().subscribe(result => {
+      this.salesTemplate = result;
+    }, error => console.error(error));
 
-        this.contributorService.getRoyaltyTemplates().subscribe(results => {
-            results.forEach(royaltyT => {
-                this.royaltyTemps.push(royaltyT);
-            });
-        }, error => {
-            this.alertify.error(error);
-        });
+    this.contributorService.getRoyaltyTemplates().subscribe(results => {
+      results.forEach(royaltyT => {
+        this.royaltyTemps.push(royaltyT);
+      });
+    }, error => {
+      this.alertify.error(error);
+    });
   }
 
   ngOnInit() {
     this.getCostTemplates();
   }
 
-  saveCostTemplate(costTemplateForm: NgForm){
-    console.log("form submit: "+JSON.stringify(costTemplateForm.value));
+  saveCostTemplate(costTemplateForm: NgForm) {
+    console.log("form submit: " + JSON.stringify(costTemplateForm.value));
     this.contributorService.saveCostTemplate(JSON.stringify(costTemplateForm.value))
-    .subscribe(
-      data => {
-        console.log('Imprint data is saved!' + JSON.stringify(data));
-      },
-      error => {
-        console.log(error);
-      }
-    );
+      .subscribe(
+        data => {
+          console.log('Imprint data is saved!' + JSON.stringify(data));
+        },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
   getCostTemplates() {
     this.contributorService.getCostTemplateData().subscribe(results => {
-        results.forEach(costT => {
-            this.costTemplatesData.push(costT);
-        });
+      results.forEach(costT => {
+        this.costTemplatesData.push(costT);
+      });
     }, error => {
-        this.alertify.error(error);
+      this.alertify.error(error);
     });
   }
 
