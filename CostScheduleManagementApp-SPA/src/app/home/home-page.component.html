@@ -1,19 +1,20 @@
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title bg-info">{{pageTitle}}</h5>
+<div class="card border-info">
+    <div class="card-header bg-info text-white">
+        <i class="fa fa-home" aria-hidden="true"></i> {{pageTitle}}
     </div>
-
-    <div class="row">
-        <div class="col-12 mx-auto">
-            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
-                style="width: 80%; height: 400px; display: block;">
-            </highcharts-chart>
-        </div>
-        <br>
-        <div class="col-12 mx-auto">
-            <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions1"
-                style="width: 80%; height: 400px; align-items: center; display: block;">
-            </highcharts-chart>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 mx-auto">
+                <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions"
+                    style="width: 80%; height: 400px; display: block;">
+                </highcharts-chart>
+            </div>
+            <br>
+            <div class="col-12 mx-auto">
+                <highcharts-chart [Highcharts]="highcharts" [options]="chartOptions1"
+                    style="width: 80%; height: 400px; align-items: center; display: block;">
+                </highcharts-chart>
+            </div>
         </div>
     </div>
 </div>
